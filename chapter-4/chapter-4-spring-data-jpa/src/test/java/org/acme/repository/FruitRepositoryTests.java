@@ -4,18 +4,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
+import javax.inject.Inject;
 
 import org.acme.domain.Fruit;
 import org.junit.jupiter.api.Test;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import io.quarkus.test.TestTransaction;
+import io.quarkus.test.junit.QuarkusTest;
 
-@SpringBootTest
-@Transactional
+@QuarkusTest
+@TestTransaction
 class FruitRepositoryTests {
-	@Autowired
+	@Inject
 	FruitRepository fruitRepository;
 
 	@Test

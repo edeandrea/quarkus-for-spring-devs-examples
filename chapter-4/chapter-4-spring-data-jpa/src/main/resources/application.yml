@@ -1,8 +1,0 @@
-spring:
-  datasource:
-    username: fruits
-    password: fruits
-    url: jdbc:postgresql://localhost:5432/fruits
-  jpa:
-    hibernate:
-      ddl-auto: validate
