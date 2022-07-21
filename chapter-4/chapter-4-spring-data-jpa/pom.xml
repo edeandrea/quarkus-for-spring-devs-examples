@@ -14,7 +14,7 @@
 	<name>chapter-4-spring-data-jpa</name>
 	<description>Spring Data JPA example</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<testcontainers.version>1.17.3</testcontainers.version>
 	</properties>
 	<dependencyManagement>
