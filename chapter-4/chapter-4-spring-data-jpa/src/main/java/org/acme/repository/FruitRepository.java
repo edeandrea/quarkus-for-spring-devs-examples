@@ -2,10 +2,15 @@ package org.acme.repository;
 
 import java.util.Optional;
 
+import javax.enterprise.context.ApplicationScoped;
+
 import org.acme.domain.Fruit;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 
-public interface FruitRepository extends JpaRepository<Fruit, Long> {
-	Optional<Fruit> findByName(String name);
+@ApplicationScoped
+public class FruitRepository implements PanacheRepositoryBase<Fruit, Long> {
+	public Optional<Fruit> findByName(String name) {
+		return find("name", name).firstResultOptional();
+	}
 }

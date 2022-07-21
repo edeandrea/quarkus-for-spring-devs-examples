@@ -4,21 +4,20 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.acme.domain.Fruit;
 import org.acme.repository.FruitRepository;
 
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-@RequestMapping("/fruits")
+@Path("/fruits")
 public class FruitController {
 	private final FruitRepository fruitRepository;
 
@@ -26,21 +25,27 @@ public class FruitController {
 		this.fruitRepository = fruitRepository;
 	}
 
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Fruit> getAll() {
-		return this.fruitRepository.findAll();
+		return this.fruitRepository.listAll();
 	}
 
-	@GetMapping(path = "/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Fruit> getFruit(@PathVariable String name) {
+	@GET
+	@Path("/{name}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getFruit(@PathParam("name") String name) {
 		return this.fruitRepository.findByName(name)
-			.map(ResponseEntity::ok)
-			.orElseGet(() -> ResponseEntity.notFound().build());
+			.map(fruit -> Response.ok(fruit).build())
+			.orElseGet(() -> Response.status(Status.NOT_FOUND).build());
 	}
 
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
-	public Fruit addFruit(@Valid @RequestBody Fruit fruit) {
-		return this.fruitRepository.save(fruit);
+	public Fruit addFruit(@Valid Fruit fruit) {
+		this.fruitRepository.persist(fruit);
+		return fruit;
 	}
 }

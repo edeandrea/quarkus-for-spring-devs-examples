@@ -20,7 +20,7 @@ class FruitRepositoryTests {
 
 	@Test
 	public void findByName() {
-		this.fruitRepository.save(new Fruit(null, "Grapefruit", "Summer fruit"));
+		this.fruitRepository.persist(new Fruit(null, "Grapefruit", "Summer fruit"));
 
 		Optional<Fruit> fruit = this.fruitRepository.findByName("Grapefruit");
 		assertThat(fruit)

@@ -25,7 +25,7 @@ class FruitControllerTests {
 
 	@Test
 	public void getAll() {
-		Mockito.when(this.fruitRepository.findAll())
+		Mockito.when(this.fruitRepository.listAll())
 			.thenReturn(List.of(new Fruit(1L, "Apple", "Hearty Fruit")));
 
 		get("/fruits").then()
@@ -36,7 +36,7 @@ class FruitControllerTests {
 			.body("[0].name", is("Apple"))
 			.body("[0].description", is("Hearty Fruit"));
 
-		Mockito.verify(this.fruitRepository).findAll();
+		Mockito.verify(this.fruitRepository).listAll();
 		Mockito.verifyNoMoreInteractions(this.fruitRepository);
 	}
 
@@ -70,8 +70,9 @@ class FruitControllerTests {
 
 	@Test
 	public void addFruit() {
-		Mockito.when(this.fruitRepository.save(Mockito.any(Fruit.class)))
-			.thenReturn(new Fruit(1L, "Grapefruit", "Summer fruit"));
+		Mockito.doNothing()
+			.when(this.fruitRepository)
+			.persist(Mockito.any(Fruit.class));
 
 		given()
 			.contentType(ContentType.JSON)
@@ -80,11 +81,10 @@ class FruitControllerTests {
 			.then()
 			.contentType(ContentType.JSON)
 			.statusCode(Status.OK.getStatusCode())
-			.body("id", is(1))
 			.body("name", is("Grapefruit"))
 			.body("description", is("Summer fruit"));
 
-		Mockito.verify(this.fruitRepository).save(Mockito.any(Fruit.class));
+		Mockito.verify(this.fruitRepository).persist(Mockito.any(Fruit.class));
 		Mockito.verifyNoMoreInteractions(this.fruitRepository);
 	}
 }
