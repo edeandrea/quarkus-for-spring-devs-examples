@@ -1,3 +1,6 @@
 spring:
   datasource:
-    url: jdbc:tc:postgresql:13:///fruits?TC_INITSCRIPT=db/schema.sql
+    url: jdbc:tc:postgresql:14:///fruits
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

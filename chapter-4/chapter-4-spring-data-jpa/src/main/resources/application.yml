@@ -5,4 +5,4 @@ spring:
     url: jdbc:postgresql://localhost:5432/fruits
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create-drop
