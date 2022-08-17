@@ -41,7 +41,7 @@ updates:
 
   # Maintain dependencies for GitHub Actions     
   - package-ecosystem: github-actions
-    directory: "chapter-4/chapter-4-spring-data-jpa"
+    directory: /
     open-pull-requests-limit: 10
     target-branch: quarkus-for-spring-devs-talk
     schedule:
@@ -52,7 +52,7 @@ updates:
       separator: "_"
       
   - package-ecosystem: github-actions
-    directory: "chapter-4/chapter-4-spring-data-jpa"
+    directory: /
     open-pull-requests-limit: 10
     target-branch: quarkus-for-spring-devs-talk-spring-compat
     schedule:
@@ -63,7 +63,7 @@ updates:
       separator: "_"
       
   - package-ecosystem: github-actions
-    directory: "chapter-4/chapter-4-spring-data-jpa"
+    directory: /
     open-pull-requests-limit: 10
     target-branch: quarkus-for-spring-devs-talk-full-quarkus-convert
     schedule:
