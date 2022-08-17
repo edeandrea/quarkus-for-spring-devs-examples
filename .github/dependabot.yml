@@ -11,6 +11,45 @@ updates:
       separator: "_"
     ignore:
       - dependency-name: org.apache.maven.plugins:maven-compiler-plugin
+      
+  - package-ecosystem: maven
+    directory: /
+    open-pull-requests-limit: 20
+    schedule:
+      interval: daily
+    target-branch: quarkus-for-spring-devs-talk
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
+    ignore:
+      - dependency-name: org.apache.maven.plugins:maven-compiler-plugin
+      
+  - package-ecosystem: maven
+    directory: /
+    open-pull-requests-limit: 20
+    schedule:
+      interval: daily
+    target-branch: quarkus-for-spring-devs-talk-spring-compat
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
+    ignore:
+      - dependency-name: org.apache.maven.plugins:maven-compiler-plugin
+    
+  - package-ecosystem: maven
+    directory: /
+    open-pull-requests-limit: 20
+    schedule:
+      interval: daily
+    target-branch: quarkus-for-spring-devs-talk-full-quarkus-convert
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
+    ignore:
+      - dependency-name: org.apache.maven.plugins:maven-compiler-plugin
 
 #  - package-ecosystem: maven
 #    directory: "chapter-2/chapter-2-simple-project"
