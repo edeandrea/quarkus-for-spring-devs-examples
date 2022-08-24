@@ -84,7 +84,6 @@ class FruitControllerTests {
 		)
 			.andExpect(status().isOk())
 			.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-			.andExpect(jsonPath("id").value(1))
 			.andExpect(jsonPath("name").value("Grapefruit"))
 			.andExpect(jsonPath("description").value("Summer fruit"));
 
