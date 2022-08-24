@@ -80,7 +80,6 @@ class FruitControllerTests {
 			.then()
 			.contentType(ContentType.JSON)
 			.statusCode(Status.OK.getStatusCode())
-			.body("id", is(1))
 			.body("name", is("Grapefruit"))
 			.body("description", is("Summer fruit"));
 
