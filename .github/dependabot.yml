@@ -5,6 +5,19 @@ updates:
     open-pull-requests-limit: 20
     schedule:
       interval: daily
+    target-branch: quarkus-for-spring-devs-talk-sb3
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
+    ignore:
+      - dependency-name: org.apache.maven.plugins:maven-compiler-plugin
+      
+  - package-ecosystem: maven
+    directory: "chapter-4/chapter-4-spring-data-jpa"
+    open-pull-requests-limit: 20
+    schedule:
+      interval: daily
     target-branch: quarkus-for-spring-devs-talk
     labels:
       - "version-upgrade"
@@ -44,6 +57,17 @@ updates:
     directory: /
     open-pull-requests-limit: 10
     target-branch: quarkus-for-spring-devs-talk
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
+      
+  - package-ecosystem: github-actions
+    directory: /
+    open-pull-requests-limit: 10
+    target-branch: quarkus-for-spring-devs-talk-sb3
     schedule:
       interval: daily
     labels:
