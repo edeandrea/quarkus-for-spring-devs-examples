@@ -5,10 +5,10 @@
 
 # Example usage
 # 1) Run the java app 10 times
-# $ ./1strequest.sh "java -jar target/chapter-4-spring-data-jpa-1.0.0-SNAPSHOT.jar" 10
+# $ ./1strequest.sh "java -jar target/quarkus-app/quarkus-run.jar" 10
 #
 # 2) Run the native app 10 times
-# $ ./1strequest.sh target/chapter-4-spring-data-jpa 10
+# $ ./1strequest.sh target/chapter-4-spring-data-jpa-1.0.0-SNAPSHOT-runner 10
 
 COMMAND=$1
 NUM_ITERATIONS=1
