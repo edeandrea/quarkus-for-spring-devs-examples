@@ -6,8 +6,6 @@ import static org.hamcrest.Matchers.is;
 import java.util.List;
 import java.util.Optional;
 
-import javax.ws.rs.core.Response.Status;
-
 import org.acme.domain.Fruit;
 import org.acme.repository.FruitRepository;
 import org.junit.jupiter.api.Test;
@@ -17,6 +15,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.mockito.InjectMock;
 
 import io.restassured.http.ContentType;
+import jakarta.ws.rs.core.Response.Status;
 
 @QuarkusTest
 class FruitControllerTests {

@@ -3,8 +3,6 @@ package org.acme.rest;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-import javax.ws.rs.core.Response.Status;
-
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -13,6 +11,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 import io.restassured.http.ContentType;
+import jakarta.ws.rs.core.Response.Status;
 
 @QuarkusIntegrationTest
 @TestMethodOrder(OrderAnnotation.class)
