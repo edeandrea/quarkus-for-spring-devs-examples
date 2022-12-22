@@ -7,6 +7,8 @@ on:
       - quarkus-for-spring-devs-talk-sb3
       - quarkus-for-spring-devs-talk-spring-compat
       - quarkus-for-spring-devs-talk-full-quarkus-convert
+      - quarkus-for-spring-devs-talk-spring-compat-quarkus3
+      - quarkus-for-spring-devs-talk-full-quarkus-convert-quarkus3
     paths-ignore:
       - '.github/dependabot.yml'
       - '*.md'
@@ -16,6 +18,8 @@ on:
       - quarkus-for-spring-devs-talk-sb3
       - quarkus-for-spring-devs-talk-spring-compat
       - quarkus-for-spring-devs-talk-full-quarkus-convert
+      - quarkus-for-spring-devs-talk-spring-compat-quarkus3
+      - quarkus-for-spring-devs-talk-full-quarkus-convert-quarkus3
     paths-ignore:
       - '.github/dependabot.yml'
       - '*.md'

@@ -3,7 +3,7 @@ package org.acme.rest;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-import javax.ws.rs.core.Response.Status;
+import jakarta.ws.rs.core.Response.Status;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
