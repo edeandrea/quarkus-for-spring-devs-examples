@@ -52,6 +52,32 @@ updates:
     ignore:
       - dependency-name: org.apache.maven.plugins:maven-compiler-plugin
 
+  - package-ecosystem: maven
+    directory: "chapter-4/chapter-4-spring-data-jpa"
+    open-pull-requests-limit: 20
+    schedule:
+      interval: daily
+    target-branch: quarkus-for-spring-devs-talk-spring-compat-quarkus3
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
+    ignore:
+      - dependency-name: org.apache.maven.plugins:maven-compiler-plugin
+
+  - package-ecosystem: maven
+    directory: "chapter-4/chapter-4-spring-data-jpa"
+    open-pull-requests-limit: 20
+    schedule:
+      interval: daily
+    target-branch: quarkus-for-spring-devs-talk-full-quarkus-convert-quarkus3
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
+    ignore:
+      - dependency-name: org.apache.maven.plugins:maven-compiler-plugin
+
   # Maintain dependencies for GitHub Actions     
   - package-ecosystem: github-actions
     directory: /
@@ -97,3 +123,24 @@ updates:
     pull-request-branch-name:
       separator: "_"
 
+  - package-ecosystem: github-actions
+    directory: /
+    open-pull-requests-limit: 10
+    target-branch: quarkus-for-spring-devs-talk-spring-compat-quarkus3
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
+
+  - package-ecosystem: github-actions
+    directory: /
+    open-pull-requests-limit: 10
+    target-branch: quarkus-for-spring-devs-talk-full-quarkus-convert-quarkus3
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+    pull-request-branch-name:
+      separator: "_"
