@@ -15,31 +15,39 @@ NUM_ITERATIONS=1
 TOTAL_RSS=0
 TOTAL_TTFR=0
 
+trap 'echo "Cleaning up process"; kill ${CURRENT_PID}' SIGINT SIGTERM SIGKILL
+
 if [ "$#" -eq 2 ]; then
   NUM_ITERATIONS=$2
 fi
 
 for (( i=0; i<$NUM_ITERATIONS; i++))
 do
+  # drop OS page cache entries, inode etc etc
+  sync && sudo purge
   ts=$(gdate +%s%N)
-  $1 &
-  pid=$!
+  $COMMAND &
+  CURRENT_PID=$!
 
   while ! (curl -sf http://localhost:8080/fruits > /dev/null)
   do
-    sleep .2
-    printf "."
+    # Spin here and do nothing rather waiting some arbitrary unlucky timing
+    :
   done
 
   TTFR=$((($(gdate +%s%N) - $ts)/1000000))
-  RSS=`ps -o rss= -p $pid | sed 's/^ *//g'`
+  RSS=`ps -o rss= -p $CURRENT_PID | sed 's/^ *//g'`
+  kill $CURRENT_PID
+  wait $CURRENT_PID 2> /dev/null
   TOTAL_RSS=$((TOTAL_RSS + RSS))
   TOTAL_TTFR=$((TOTAL_TTFR + TTFR))
-  kill $pid
-  wait $pid 2> /dev/null
+  echo
+  echo "-------------INTERMEDIATE RESULTS ---------------"
+  printf "RSS (after 1st request): %.1f MB\n" $(echo "$RSS / 1024" | bc -l)
+  printf "time to first request: %.3f sec\n" $(echo "$TTFR / 1000" | bc -l)
+  echo "-------------------------------------------------"
 done
 
-echo
 echo
 echo
 echo "-------------------------------------------------"
