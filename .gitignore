@@ -38,3 +38,4 @@ nb-configuration.xml
 # Local environment
 .env
 .jpb
+/.quarkus/cli/plugins/quarkus-cli-catalog.json
