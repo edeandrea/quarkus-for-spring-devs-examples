@@ -1,6 +1,14 @@
 name: Dependabot auto-merge
 
-on: pull_request
+on:
+  pull_request:
+    branches:
+      - quarkus-for-spring-devs-talk
+      - quarkus-for-spring-devs-talk-full-quarkus-convert
+      - quarkus-for-spring-devs-talk-full-quarkus-convert-quarkus3
+      - quarkus-for-spring-devs-talk-sb3
+      - quarkus-for-spring-devs-talk-spring-compat
+      - quarkus-for-spring-devs-talk-spring-compat-quarkus3
 
 permissions:
   contents: write
@@ -18,7 +26,7 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Enable auto-merge for Dependabot PRs
-        if: steps.metadata.outputs.update-type == 'version-update:semver-patch'
+        if: (steps.metadata.outputs.update-type == 'version-update:semver-patch') || (steps.metadata.outputs.update-type == 'version-update:semver-minor') || (steps.metadata.outputs.update-type == 'version-update:semver-major')
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
