@@ -9,7 +9,7 @@
   <description>Spring Data JPA example</description>
   <properties>
     <assertj.version>3.24.2</assertj.version>
-    <compiler-plugin.version>3.11.0</compiler-plugin.version>
+    <compiler-plugin.version>3.12.0</compiler-plugin.version>
     <java.version>17</java.version>
     <maven.compiler.release>17</maven.compiler.release>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
