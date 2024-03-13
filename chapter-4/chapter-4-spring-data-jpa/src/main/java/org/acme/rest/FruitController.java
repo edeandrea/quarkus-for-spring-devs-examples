@@ -2,6 +2,9 @@ package org.acme.rest;
 
 import java.util.List;
 
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
+
 import org.acme.domain.Fruit;
 import org.acme.repository.FruitRepository;
 
@@ -13,9 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/fruits")
