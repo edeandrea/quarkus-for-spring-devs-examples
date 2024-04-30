@@ -35,12 +35,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: 21
           distribution: temurin
           cache: maven
 
       - name: Build
         working-directory: chapter-4/chapter-4-spring-data-jpa
-        run: ./mvnw -B clean verify -Dquarkus.http.test-port=0 -Dmaven.compiler.release=17
+        run: ./mvnw -B clean verify -Dquarkus.http.test-port=0 -Dmaven.compiler.release=21
