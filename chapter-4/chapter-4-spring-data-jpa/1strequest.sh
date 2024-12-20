@@ -15,8 +15,6 @@ NUM_ITERATIONS=1
 TOTAL_RSS=0
 TOTAL_TTFR=0
 
-trap 'echo "Cleaning up process"; kill ${CURRENT_PID}' SIGINT SIGTERM SIGKILL
-
 if [ "$#" -eq 2 ]; then
   NUM_ITERATIONS=$2
 fi
