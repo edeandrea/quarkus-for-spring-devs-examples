@@ -8,7 +8,7 @@
   <name>chapter-4-spring-data-jpa</name>
   <description>Spring Data JPA example</description>
   <properties>
-    <assertj.version>3.27.1</assertj.version>
+    <assertj.version>3.27.2</assertj.version>
     <compiler-plugin.version>3.13.0</compiler-plugin.version>
     <java.version>17</java.version>
     <maven.compiler.release>17</maven.compiler.release>
