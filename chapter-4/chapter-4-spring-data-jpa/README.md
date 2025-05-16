@@ -5,13 +5,13 @@ This is an example using Spring Data JPA.
 This application expects a PostgreSQL database running on localhost. You can use Docker (or Podman) to start the database:
 
 ```shell
-docker run -it --rm=true --name chapter4 -p 5432:5432 -e POSTGRES_USER=fruits -e POSTGRES_PASSWORD=fruits -e POSTGRES_DB=fruits postgres:16
+docker run -it --rm=true --name chapter4 -p 5432:5432 -e POSTGRES_USER=fruits -e POSTGRES_PASSWORD=fruits -e POSTGRES_DB=fruits postgres:17
 ```
 
 or
 
 ```shell
-podman run -it --rm=true --name chapter4 -p 5432:5432 -e POSTGRES_USER=fruits -e POSTGRES_PASSWORD=fruits -e POSTGRES_DB=fruits postgres:16
+podman run -it --rm=true --name chapter4 -p 5432:5432 -e POSTGRES_USER=fruits -e POSTGRES_PASSWORD=fruits -e POSTGRES_DB=fruits postgres:17
 ```
 
 To compile to native you need to run `./mvnw clean native:compile -Pnative -DskipTests`
