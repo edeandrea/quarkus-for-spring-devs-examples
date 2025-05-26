@@ -1,7 +1,10 @@
 package org.acme.rest;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,9 +18,9 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
@@ -27,11 +30,11 @@ class FruitControllerTests {
 	@Autowired
 	MockMvc mockMvc;
 
-	@MockBean
+	@MockitoBean
 	FruitRepository fruitRepository;
 
 	@Test
-	public void getAll() throws Exception {
+	void getAll() throws Exception {
 		Mockito.when(this.fruitRepository.findAll())
 			.thenReturn(List.of(new Fruit(1L, "Apple", "Hearty Fruit")));
 
@@ -48,7 +51,7 @@ class FruitControllerTests {
 	}
 
 	@Test
-	public void getFruitFound() throws Exception {
+	void getFruitFound() throws Exception {
 		Mockito.when(this.fruitRepository.findByName(Mockito.eq("Apple")))
 			.thenReturn(Optional.of(new Fruit(1L, "Apple", "Hearty Fruit")));
 
@@ -64,7 +67,7 @@ class FruitControllerTests {
 	}
 
 	@Test
-	public void getFruitNotFound() throws Exception {
+	void getFruitNotFound() throws Exception {
 		Mockito.when(this.fruitRepository.findByName(Mockito.eq("Apple")))
 			.thenReturn(Optional.empty());
 
@@ -76,7 +79,7 @@ class FruitControllerTests {
 	}
 
 	@Test
-	public void addFruit() throws Exception {
+	void addFruit() throws Exception {
 		Mockito.when(this.fruitRepository.save(Mockito.any(Fruit.class)))
 			.thenReturn(new Fruit(1L, "Grapefruit", "Summer fruit"));
 
